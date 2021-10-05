@@ -3,9 +3,8 @@
 
 #include <SFML/Graphics.hpp>
 #include <functional>
-#include <stack>
+#include <vector>
 
-#include "addons/addon.h"
 
 class Object : public sf::Sprite
 {
@@ -15,12 +14,15 @@ public:
     bool loadFromFile(const std::string& path);
     sf::Texture *getTexture();
     bool isReady();
-    std::function<void(float,Object*,sf::View*,sf::RenderWindow*)> update;
+    void update(float dt,Object* obj,sf::View* v,sf::RenderWindow* rw);
+
+    void setUpdate(const std::function<void(float,Object*,sf::View*,sf::RenderWindow*)> &_update);
 
 private:
     sf::Texture tex;
     bool hasTexture;
-    std::stack<A*> addons;
+
+    std::function<void(float,Object*,sf::View*,sf::RenderWindow*)> _update;
 };
 
 #endif // OBJECT_H

@@ -34,6 +34,11 @@ public:
     void update(const float dt);
     void changeAnim(unsigned int animNum);
 
+    sf::IntRect getBounds();
+
+    void setFrameSize(sf::IntRect fS);
+    sf::IntRect getFrameSize();
+
     AnimationHandler();
     AnimationHandler(const sf::IntRect& fS);
 };

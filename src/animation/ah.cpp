@@ -81,3 +81,18 @@ void AnimationHandler::changeAnim(unsigned int animID)
     bounds = rect;
     currentTime = 0.0f;
 }
+
+sf::IntRect AnimationHandler::getBounds()
+{
+    return bounds;
+}
+
+void AnimationHandler::setFrameSize(sf::IntRect fS)
+{
+    frameSize = fS;
+}
+
+sf::IntRect AnimationHandler::getFrameSize()
+{
+    return frameSize;
+}

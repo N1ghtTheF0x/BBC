@@ -1,0 +1,5 @@
+{
+    "terminal.integrated.env.windows": {
+        "MINGW_BIN_PATH": "H:/mingw64/bin"
+    }
+}

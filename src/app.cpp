@@ -67,9 +67,9 @@ bool App::onInit()
         Object testobj(testpng);
         Object test2obj(test2png);
 
-        testobj.update = [](float delta,Object *obj,sf::View *v,sf::RenderWindow *rw)
+        testobj.setUpdate([](float delta,Object *obj,sf::View *v,sf::RenderWindow *rw)
         {
-            float spd = 50;
+            float spd = 100;
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             {
                 obj->move(0,-spd*delta);
@@ -86,7 +86,7 @@ bool App::onInit()
             {
                 obj->move(spd*delta,0);
             }
-        };
+        });
 
         test2obj.setPosition(500,500);
 

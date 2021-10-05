@@ -2,7 +2,7 @@
 
 A Tower Defence Game using SFML and C++
 
-# Building
+## Building
 
 You need:
 
@@ -15,7 +15,16 @@ You need:
 
 1. Download all the things above and install the VS Code Extension
 2. Change the following Things in `.vscode` Folder for you:
- - `c_cpp_properties.json` = `"compilerPath": <path/to/g++>`
+ - `c_cpp_properties.json` = `"compilerPath": <path/to/g++>` and `"args"` change the inlcude/lib path to SFML
  - `tasks.json` = `"command": <same as above>`
  - `launch.json` = `"miDebuggerPath": <path/to/gpd>`
 3. You can now press `CTRL + Shift + B -> Build` to create a Build and `F5` to start the debugger!
+
+## Asset Layout
+
+inside bin should be:
+
+`img` Folder with Images
+`audio` Folder with Audio files (ogg, no mp3)
+
+These folders also can have subfolders

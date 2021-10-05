@@ -1,1 +1,9 @@
+# Bin Folder
+
 bin/**
+
+!bin/img
+bin/img/**
+
+!bin/audio
+bin/audio/**

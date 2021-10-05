@@ -9,6 +9,7 @@ public:
 	Manager();
 	Manager(std::string gp);
 	std::string getImage(std::string path);
+	std::string getAudio(std::string path);
 
 private:
 	std::string game_path;

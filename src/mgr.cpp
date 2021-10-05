@@ -13,3 +13,7 @@ std::string Manager::getImage(std::string path)
 {
 	return game_path + "img/" + path;
 }
+std::string Manager::getAudio(std::string path)
+{
+	return game_path + "audio/" + path;
+}
