@@ -14,7 +14,7 @@ You need:
 ## Instructions
 
 1. Download all the things above and install the VS Code Extension
-2. Change the following Things in `.vscode` Folder for you:
+2. Change the following Things in `.vscode` Folder for you: (We should make this easier. With Enviroment Variables?)
  - `c_cpp_properties.json` = `"compilerPath": <path/to/g++>` and `"args"` change the inlcude/lib path to SFML
  - `tasks.json` = `"command": <same as above>`
  - `launch.json` = `"miDebuggerPath": <path/to/gpd>`
