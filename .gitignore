@@ -1,9 +1,7 @@
-# Bin Folder
-
-bin/**
-
-!bin/img
-bin/img/**
-
-!bin/audio
-bin/audio/**
+# Build Folder
+build/*
+# Textures
+bin/img/*.png
+# Audio
+bin/audio/*.wav
+bin/audio/*.ogg

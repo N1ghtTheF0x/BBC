@@ -1,5 +1,5 @@
-#include "app.h"
-#include "debug.h"
+#include "app.hpp"
+#include "debug.hpp"
 
 int main(int argc,char** argv)
 {

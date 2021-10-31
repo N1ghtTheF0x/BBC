@@ -3,9 +3,10 @@
 
 #include <vector>
 #include <stack>
-#include "object.h"
-#include "event.h"
-#include "mgr.h"
+
+#include "object.hpp"
+#include "event.hpp"
+#include "mgr.hpp"
 
 class App : public Event
 {

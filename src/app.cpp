@@ -1,6 +1,8 @@
-#include "app.h"
-#include "debug.h"
+#include "app.hpp"
+#include "debug.hpp"
 #include <algorithm>
+
+#include "vector2.hpp"
 
 App::App(int _argc,char** _argv): Event()
 {
@@ -61,8 +63,8 @@ bool App::onInit()
         view = new sf::View(sf::FloatRect(0,0,1280,720)); // Make Camera Object
         window->setView(*view); // Set the Camera Object
         Debug::print("onInit(): Test Images Path");
-        std::string testpng = mgr.getImage("test.png"); // Test image
-        std::string test2png = mgr.getImage("test2.png"); // Test image 2
+        std::string testpng = mgr.getImagePath("test.png"); // Test image
+        std::string test2png = mgr.getImagePath("test2.png"); // Test image 2
         Debug::print("onInit(): Test Objects");
 
         Object testobj(testpng); // Basic test Object with WASD movement
@@ -71,6 +73,7 @@ bool App::onInit()
         testobj.setUpdate([](float delta,Object *obj,sf::View *v,sf::RenderWindow *rw) // Remember to use Delta for movement calculations
         {
             float spd = 100;
+            Vector2 vec(20,20);
             if(sf::Keyboard::isKeyPressed(sf::Keyboard::W))
             {
                 obj->move(0,-spd*delta);
@@ -126,8 +129,9 @@ void App::onRender()
     for (size_t i = 0; i < objects.size(); i++) // Every Object
     {
         Object obj = objects.at(i); // Get da Object
-        if(!obj.isReady()) continue; // Don't draw if not ready
-        obj.setTexture(*obj.getTexture()); // Set the Texture. Maybe make a Texture manager for better loading?
+        Texture* tex = mgr.getImage(obj.getImagePath()); // Get da Texture
+        if(!tex->isReady()) continue; // Don't draw if not ready
+        obj.setTexture(*tex); // Set the Texture.
         window->draw(obj); // Just draw it
     }
     window->display(); // And display all
@@ -136,6 +140,7 @@ void App::onCleanup()
 {
     // Delete, destroy stuff here. Free up Memory
     Debug::print("onCleanup()");
+    mgr.removeUnused();
     window->close(); 
 }
 void App::onClosed()
